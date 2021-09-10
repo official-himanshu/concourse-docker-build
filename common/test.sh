@@ -1,3 +1,3 @@
 #!/bin/bash 
 
-echo "hello arg ${NAME} ${USERNAME}"
+echo "hello arg ${PASSWORD} ${USERNAME} ${URL}"

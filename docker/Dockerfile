@@ -1,7 +1,8 @@
 FROM alpine
 
-ARG NAME
+ARG PASSWORD
 ARG USERNAME
+ARG URL
 
 RUN set -eux \
     && apk add  --no-cache --virtual \
