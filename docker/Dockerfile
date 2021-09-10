@@ -8,7 +8,7 @@ RUN set -eux \
     curl \
     bash
 
-RUN echo "I'm simple! ${NAME}"
+RUN echo "I'm simple! ${NAME} ${USERNAME}"
 COPY test.sh .
 RUN chmod +x test.sh && \
     ./test.sh
