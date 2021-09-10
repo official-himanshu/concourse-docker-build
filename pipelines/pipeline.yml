@@ -34,7 +34,7 @@ jobs:
         - -exc
         - |
           cp docker-ci/docker/Dockerfile docker/Dockerfile
-          cp docker-ci/common/test.sh docker/test.sh
+          cp docker-ci/common/* docker/
       inputs:
       - name: docker-ci
       outputs:
@@ -42,7 +42,5 @@ jobs:
   - put: test-docker-image
     params:
       build: docker
-      build_args:
-        NAME: Himanshu
-        USERNAME: Chaudhary
+      build_args_file: build-args.json
 
