@@ -3,5 +3,5 @@ FROM busybox
 ARG NAME
 
 RUN echo "I'm simple! ${NAME}"
-COPY ./stranger /stranger
-RUN cat /stranger
+COPY test.sh .
+RUN ./test.sh
