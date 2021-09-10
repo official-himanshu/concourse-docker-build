@@ -18,26 +18,24 @@ resources:
 
 jobs:
 - name: build-and-push
-	plan:
-	- get: docker-ci
-		trigger: true
-	- task: copy-source-files
-		config:
-			platform: linux
-			image_resource:
-				type: docker-image
-				source: { repository: alpine }
-			run:
-				path: sh
-				args:
-				- -exc
-				- |
-					cp docker-ci/docker/Dockerfile docker/Dockerfile
-			inputs:
-			- name: docker-ci
-			outputs:
-			- name: docker
-	- put: docker-ci-image
-		params:
-			build: docker
+  plan:
+  - get: docker-ci
+    trigger: true
+  - task: copy-source-files
+    config:
+      platform: linux
+      image_resource:
+        type: docker-image
+        source: { repository: alpine }
+      run: 
+        path: sh
+        args:
+        - -exc
+        - |
+          cp docker-ci/docker/Dockerfile docker/Dockerfile
+      inputs:
+      - name: docker-ci
+      outputs:
+      - name: docker
+  - put: test-docker-image
 
