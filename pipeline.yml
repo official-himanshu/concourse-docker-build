@@ -3,11 +3,11 @@ resources:
 - name: docker-ci
   type: git
   icon: github
-	check_every: 1h
+  check_every: 1h
   source:
     uri: https://github.com/official-himanshu/concourse-docker-build.git
     branch: main
-		paths: ['docker','common']
+    paths: ['docker','common']
 
 # Where we will push the image to
 - name: test-docker-image
@@ -34,13 +34,13 @@ jobs:
         - -exc
         - |
           cp docker-ci/docker/Dockerfile docker/Dockerfile
-					cp docker-ci/common/test.sh docker/test.sh
+          cp docker-ci/common/test.sh docker/test.sh
       inputs:
       - name: docker-ci
       outputs:
       - name: docker
-			params:
-				BUILD_ARG_NAME: Himanshu
+      params:
+        BUILD_ARG_NAME: Himanshu
   - put: test-docker-image
     params:
       build: docker
