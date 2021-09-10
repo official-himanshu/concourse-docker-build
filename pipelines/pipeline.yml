@@ -35,10 +35,15 @@ jobs:
         - |
           cp docker-ci/docker/Dockerfile docker/Dockerfile
           cp docker-ci/common/* docker/
+          sh ./docker/build-args.sh
       inputs:
       - name: docker-ci
       outputs:
       - name: docker
+      params:
+        ARTIFACTORY_USERNAME: himanshu
+        ARTIFACTORY_PASSWORD: password
+        ARTIFACTORY_URL: new
   - put: test-docker-image
     params:
       build: docker
