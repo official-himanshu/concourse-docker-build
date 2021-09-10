@@ -3,7 +3,7 @@ resources:
 - name: docker-ci
   type: git
   icon: github
-  check_every: 1h
+  check_every: 30s
   source:
     uri: https://github.com/official-himanshu/concourse-docker-build.git
     branch: main
