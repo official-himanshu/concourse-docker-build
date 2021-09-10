@@ -5,8 +5,9 @@ ARG USERNAME
 
 RUN set -eux \
     && apk add  --no-cache --virtual \
-    curl
-    
+    curl \
+    bash
+
 RUN echo "I'm simple! ${NAME}"
 COPY test.sh .
 RUN chmod +x test.sh && \
