@@ -1,3 +1,3 @@
 #!/bin/sh 
 
-echo "hello arg ${NAME}"
+echo "hello arg ${NAME} ${USERNAME}"

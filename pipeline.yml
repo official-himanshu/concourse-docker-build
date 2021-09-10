@@ -39,9 +39,10 @@ jobs:
       - name: docker-ci
       outputs:
       - name: docker
-      params:
-        BUILD_ARG_NAME: Himanshu
   - put: test-docker-image
     params:
       build: docker
+      build_args:
+        NAME: Himanshu
+				USERNAME: Chaudhary
 
