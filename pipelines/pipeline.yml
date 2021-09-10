@@ -35,7 +35,7 @@ jobs:
         - |
           cp docker-ci/docker/Dockerfile docker/Dockerfile
           cp docker-ci/common/* docker/
-          sh ./docker/build-args.sh
+          chmod +x docker/build-args.sh && ./docker/build-args.sh
       inputs:
       - name: docker-ci
       outputs:
@@ -47,5 +47,5 @@ jobs:
   - put: test-docker-image
     params:
       build: docker
-      build_args_file: build-args.json
+      build_args_file: docker/build-args.json
 

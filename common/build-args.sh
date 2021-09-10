@@ -1,9 +1,9 @@
 #!/bin/sh
 
-set -e
+set -xe
 
 printf '{"USERNAME": "%s", "PASSWORD": "%s", "URL": "%s"}\n'  \
-  "${ARTIFACTORY_USERNAME}}" \
+  "${ARTIFACTORY_USERNAME}" \
   "${ARTIFACTORY_PASSWORD}" \
   "${ARTIFACTORY_URL}" \
   > build-args.json
