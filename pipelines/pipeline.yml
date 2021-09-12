@@ -15,7 +15,7 @@ resources:
   source:
     repository: ((image-repo-name))/simple-image
     username: ((registry-username))
-    password: ((registry-password))
+    password: ((docker.registry-password))
 
 jobs:
 - name: build-and-push
@@ -40,10 +40,10 @@ jobs:
       - name: docker-ci
       outputs:
       - name: docker
-      params:
-        ARTIFACTORY_USERNAME: himanshu
-        ARTIFACTORY_PASSWORD: password
-        ARTIFACTORY_URL: new
+    params:
+      ARTIFACTORY_USERNAME: himanshu
+      ARTIFACTORY_PASSWORD: ((docker.registry-password))
+      ARTIFACTORY_URL: new
   - put: test-docker-image
     params:
       build: docker
